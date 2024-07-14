@@ -1,5 +1,5 @@
-from speechbrain.lobes.models.Tacotron2_partitions.utils import text_to_sequence
-from speechbrain.lobes.models.Tacotron2_partitions.utils.padding import PaddedBatch
+from utils import text_to_sequence
+from utils import PaddedBatch
 
 
 import torch
