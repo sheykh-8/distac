@@ -1,5 +1,5 @@
-from utils import text_to_sequence
-from utils import PaddedBatch
+from model.Tacotron2_partitions.utils.text_to_sequence import text_to_sequence
+from model.Tacotron2_partitions.utils.padding import PaddedBatch
 
 
 import torch
