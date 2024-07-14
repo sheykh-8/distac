@@ -17,6 +17,6 @@ def get_inference(spectrogram):
         spectrogram
     )
 
-    audio_path = f"inferenced_audio{uuid.uuid4().hex}.wav"
+    audio_path = f"/mnt/shared/inferenced_audio{uuid.uuid4().hex}.wav"
     torchaudio.save(audio_path, waveform.squeeze(1), 22050)
     return audio_path

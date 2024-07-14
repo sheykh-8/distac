@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: decoder
+spec:
+  selector:
+    app: decoder
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

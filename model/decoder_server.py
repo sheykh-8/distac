@@ -5,7 +5,7 @@ from model.Tacotron2_partitions.tacotron_decoder_inference import get_inference
 app = Flask(__name__)
 
 
-@app.route("/predict-decoder", methods=["POST"])
+@app.route("/predict", methods=["POST"])
 def predict():
     if request.method == "POST":
         if not request.is_json:

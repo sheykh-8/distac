@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: encoder
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: encoder
+  template:
+    metadata:
+      labels:
+        app: encoder
+    spec:
+      containers:
+      - name: encoder
+        image: your_registry/encoder:latest
+        ports:
+        - containerPort: 80

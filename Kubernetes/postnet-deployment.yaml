@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postnet
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: postnet
+  template:
+    metadata:
+      labels:
+        app: postnet
+    spec:
+      containers:
+      - name: postnet
+        image: your_registry/postnet:latest
+        ports:
+        - containerPort: 80
