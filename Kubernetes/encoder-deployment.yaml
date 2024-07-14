@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: encoder
-        image: your_registry/encoder:latest
+        image: sheykh8/tacotron_encoder:1.0.0
         ports:
         - containerPort: 80
