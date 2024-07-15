@@ -10,3 +10,18 @@ You can build the images by executing this command for each part of the model fr
 ```bash
 docker build -f Dockerfiles/[model-part].Dockerfile -t [you_username]/[model-part]:latest .
 ```
+
+It's also possible to start this repository using docker compose by running this command in the root of the repository: 
+
+```bash
+docker compose up
+``` 
+
+
+## inference:
+
+To generate speech from the input text, considering all the services are up and running (with the orchestrator running on port 8080) you can generate speech by sending the following request:
+
+```bash
+curl -X POST http://localhost:8080/process -H "Content-Type: application/json" -d '{"text": "Only three stars are born in the milkyway each year"}' -o result.wav
+```
