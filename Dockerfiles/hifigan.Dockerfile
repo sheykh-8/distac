@@ -9,6 +9,7 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install sox soundfile
 RUN pip install torchaudio
 RUN pip install gunicorn
 
@@ -19,4 +20,4 @@ EXPOSE 5000
 ENV FLASK_ENV production
 
 # Run app.py when the container launches
-CMD ["gunicorn", "-w", "2", "--timeout", "1000", "-b", "0.0.0.0:5000", "model.decoder_server:app", "--log-level", "debug"]
+CMD ["gunicorn", "-w", "2", "--timeout", "1000", "-b", "0.0.0.0:5000", "model.hifigan_server:app", "--log-level", "debug"]

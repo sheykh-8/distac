@@ -12,7 +12,7 @@ postnet.eval()
 def get_inference(mel_output, alignments):
     # we need to convert input lengths and encoded inputs to tensors before continuing the process:
     mel_output = torch.tensor(mel_output)
-    alignments = torch.tensor(mel_output)
+    alignments = torch.tensor(alignments)
     mel_outputs_postnet, alignments = postnet(
         mel_output, alignments
     )

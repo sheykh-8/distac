@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 from model.Tacotron2_partitions.hifigan_inference import get_inference
 import os
 
@@ -17,16 +17,17 @@ def handler():
     audio_path = get_inference(spectrogram)
 
     # Send the file and then delete it
-    # response = send_file(audio_path, as_attachment=True, attachment_filename='generated_audio.wav')
+    response = send_file(audio_path, as_attachment=True, download_name='generated_audio.wav')
 
-    # @response.call_on_close
-    # def remove_file():
-    #     try:
-    #         os.remove(audio_path)
-    #     except Exception as e:
-    #         app.logger.error(f"Error removing file {audio_path}: {e}")
-
-    return jsonify({"path": audio_path})
+    @response.call_on_close
+    def remove_file():
+        try:
+            os.remove(audio_path)
+        except Exception as e:
+            app.logger.error(f"Error removing file {audio_path}: {e}")
+    
+    return response
+    # return jsonify({"path": audio_path})
 
 
 if __name__ == "__main__":

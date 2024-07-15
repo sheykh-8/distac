@@ -9,6 +9,7 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install torch==2.3.0+cu121
 RUN pip install gunicorn
 
 # Expose port 5000 for the Flask app
