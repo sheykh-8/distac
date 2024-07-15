@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: postnet
-        image: your_registry/postnet:latest
+        image: sheykh8/tacotron_postnet:latest
         ports:
         - containerPort: 80
