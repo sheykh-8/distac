@@ -1,0 +1,26 @@
+services:
+  encoder:
+    image: sheykh8/tacotron_encoder:latest
+    ports:
+      - "8082:80"
+  decoder:
+    image: sheykh8/tacotron_decoder:latest
+    ports:
+      - "8083:80"
+  postnet:
+    image: sheykh8/tacotron_postnet:latest
+    ports:
+      - "8084:80"
+  hifigan:
+    image: sheykh8/hifigan:latest
+    ports:
+      - "8081:80"
+  orchestrator:
+    image: sheykh8/tacotron_orchestrator:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - encoder
+      - decoder
+      - postnet
+      - hifigan
