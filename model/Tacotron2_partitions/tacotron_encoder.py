@@ -237,6 +237,7 @@ class TacotronEncoder(nn.Module):
 
     def forward(self, inputs, input_lengths):
         embedded_inputs = self.embedding(inputs).transpose(1, 2)
+        print(f"embedding shapes: {embedded_inputs.shape}")
         return self.encoder(embedded_inputs, input_lengths)
     
     def text_to_seq(self, text):

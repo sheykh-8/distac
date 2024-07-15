@@ -14,6 +14,7 @@ def predict():
         text = data.get("text")
         if text is None:
             return jsonify({"error": "No text field provided"}), 400
+        print(f"this is the text: {text}")
         prediction = get_inference(text)
         return jsonify(
             {

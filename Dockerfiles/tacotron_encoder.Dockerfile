@@ -1,6 +1,8 @@
 # Use an official Python runtime as a parent image
 FROM pytorch/torchserve:latest
 
+# FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime
+
 # Set the working directory in the container
 WORKDIR /app
 
@@ -9,7 +11,6 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
-RUN pip install torch==2.3.0+cu121
 RUN pip install gunicorn
 
 # Expose port 5000 for the Flask app
