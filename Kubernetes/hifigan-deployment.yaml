@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hifigan
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hifigan
+  template:
+    metadata:
+      labels:
+        app: hifigan
+    spec:
+      containers:
+      - name: hifigan
+        image: your_registry/hifigan:latest
+        ports:
+        - containerPort: 80
