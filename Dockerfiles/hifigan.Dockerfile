@@ -13,11 +13,11 @@ RUN pip install sox soundfile
 RUN pip install torchaudio
 RUN pip install gunicorn
 
-# Expose port 5000 for the Flask app
-EXPOSE 5000
+# Expose port 80 for the Flask app
+EXPOSE 80
 
 # Define environment variable
 ENV FLASK_ENV production
 
 # Run app.py when the container launches
-CMD ["gunicorn", "-w", "2", "--timeout", "1000", "-b", "0.0.0.0:5000", "model.hifigan_server:app", "--log-level", "debug"]
+CMD ["gunicorn", "-w", "2", "--timeout", "1000", "-b", "0.0.0.0:80", "model.hifigan_server:app", "--log-level", "debug"]
