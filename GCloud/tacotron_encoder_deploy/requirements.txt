@@ -1,0 +1,8 @@
+--find-links https://download.pytorch.org/whl/cpu
+torch
+torchaudio
+
+
+Flask==3.0.3
+functions_framework==3.8.0
+numpy==2.0.0
