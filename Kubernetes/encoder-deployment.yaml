@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: encoder
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: encoder
@@ -15,5 +15,11 @@ spec:
       containers:
       - name: encoder
         image: sheykh8/tacotron_encoder:latest
+        resources:
+          requests:
+            cpu: "200m"
+          limits:
+            memory: "600Mi"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

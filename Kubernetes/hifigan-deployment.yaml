@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hifigan
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: hifigan
@@ -15,5 +15,11 @@ spec:
       containers:
       - name: hifigan
         image: sheykh8/hifigan:latest
+        resources:
+          requests:
+            cpu: "2000m"
+          limits:
+            memory: "1400Mi"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

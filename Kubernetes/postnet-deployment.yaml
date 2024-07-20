@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: postnet
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: postnet
@@ -15,5 +15,11 @@ spec:
       containers:
       - name: postnet
         image: sheykh8/tacotron_postnet:latest
+        resources:
+          requests:
+            cpu: "300m"
+          limits:
+            memory: "600Mi"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

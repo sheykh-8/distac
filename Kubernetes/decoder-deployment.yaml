@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: decoder
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: decoder
@@ -15,5 +15,11 @@ spec:
       containers:
       - name: decoder
         image: sheykh8/tacotron_decoder:latest
+        resources:
+          requests:
+            cpu: "4000m"
+          limits:
+            memory: "1500Mi"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: orchestrator
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: orchestrator
@@ -14,6 +14,12 @@ spec:
     spec:
       containers:
       - name: orchestrator
-        image: sheykh8/orchestrator:latest
+        image: sheykh8/tacotron_orchestrator:latest
+        resources:
+          requests:
+            cpu: "300m"
+          limits:
+            memory: "600Mi"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
